@@ -5,13 +5,15 @@ class NoOggyChecker
 {
   static void RemoveOggy(List<string> names)
   {
-    foreach (var name in names)
+    foreach (var name in names.Reverse<string>())
     {
         if(name.StartsWith("oggy")) {
             Console.WriteLine($"Need to remove {name}!");
             names.Remove(name);
+             //break; you can stop once you have found first oggy , this crash is due to iterator modification
         }
     }
+      
   }
   static bool OggyIsRemoved(List<string> names)
   {
